@@ -1,0 +1,43 @@
+﻿@using Hash.Models;
+@model HashViewModel;
+
+
+
+@{
+    
+    ViewData["Title"] = "Conversor de senha";
+}
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem" class="alert alert-success" role="alert">
+        
+        @Html.Raw(TempData["MensagemSucesso"])
+    </div>
+}
+
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div id="mensagem" class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @Html.Raw(TempData["MensagemErro"])
+    </div>
+}
+
+
+
+<body>
+    <form asp-controller="ConverterSenha" asp-action="Converter" method="post">
+        
+        <div class="mb-3">
+            <label for=senha class="form-label">Digite a senha</label>
+            <input asp-for=senha type="text" class="form-control">
+           
+        </div>
+       
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
